@@ -1,0 +1,18 @@
+<core:View controllerName="SelfServicePortal.view.Master" xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Page title="{i18n>MasterTitle}" class="sapUiContentPadding">
+		<content>
+			<VBox alignItems="Center" justifyContent="Center">
+				<SegmentedButton id="ModeSelect" class="sapUiTinyMarginBottom" width="320px">
+					<items>
+						<SegmentedButtonItem id="GIButton" icon="sap-icon://add-product" text="Goods Issue" key="GI"/>
+						<SegmentedButtonItem id="RetButton" icon="sap-icon://supplier" text="Return" key="Ret"/>
+					</items>
+				</SegmentedButton>
+				<HBox alignItems="Center" justifyContent="Center">
+					<Input id="EmployeeIDInput" width="282px" type="Number" placeholder="Enter Employee ID" submit="handleIDSubmit" maxLength="8"></Input>
+					<Button icon="sap-icon://bar-code" press="handleScan"></Button>
+				</HBox>
+			</VBox>
+		</content>
+	</Page>
+</core:View>

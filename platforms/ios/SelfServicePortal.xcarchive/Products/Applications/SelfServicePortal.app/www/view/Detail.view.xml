@@ -1,0 +1,82 @@
+<core:View controllerName="SelfServicePortal.view.Detail" xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+	<Page title="{/ViewModel/SelectedMode}" class="sapUiFioriObjectPage" showNavButton="true" navButtonPress="handleNavButtonPress">
+		<ObjectHeader title="{/ViewModel/SelectedEmployee/oData/EFullname}" number="{/ViewModel/SelectedEmployee/oData/EPerno}"></ObjectHeader>
+		<IconTabBar expanded="{device>/isNoPhone}" text="Transaction">
+			<items>
+				<IconTabFilter icon="sap-icon://accounting-document-verification" text="Cost Center">
+					<l:VerticalLayout>
+						<HBox>
+							<Button icon="sap-icon://bar-code" press="handleCCScan"></Button>
+							<Input id="CCInput" type="Number" showSuggestion="false" suggestionItems="{/ViewModel/CostCenterSet}" placeholder="Cost Center Number"
+								valueLiveUpdate="true" submit="handleCCSubmit" liveChange="handleCCChange" suggestionItemSelected="handleCCSelect">
+								<suggestionItems>
+									<core:Item text="{CCNum}"/>
+								</suggestionItems>
+							</Input>
+							<Button icon="sap-icon://search" press="handleCCSubmit"></Button>
+						</HBox>
+						<Label text="Description"/>
+						<Text id="CCInfo"></Text>
+					</l:VerticalLayout>
+				</IconTabFilter>
+				<IconTabFilter icon="sap-icon://eam-work-order" text="Work Order">
+					<l:VerticalLayout>
+						<HBox>
+							<Button icon="sap-icon://bar-code" press="handleWOScan"></Button>
+							<Input id="WOInput" type="Number" showSuggestion="false" suggestionItems="{/ViewModel/WorkOrderSet}" placeholder="Work Order Number"
+								valueLiveUpdate="true" submit="handleWOSubmit" liveChange="handleWOChange" suggestionItemSelected="handleWOSelect">
+								<suggestionItems>
+									<core:Item text="{WONum}"/>
+								</suggestionItems>
+							</Input>
+							<Button icon="sap-icon://search" press="handleWOSubmit"></Button>
+						</HBox>
+						<Label text="Description"/>
+						<Text id="WOInfo"></Text>
+					</l:VerticalLayout>
+				</IconTabFilter>
+			</items>
+		</IconTabBar>
+		<Bar>
+			<contentMiddle>
+				<Title text="{i18n>LineItemTableHeader}"/>
+			</contentMiddle>
+			<contentRight>
+				<HBox>
+					<Button icon="sap-icon://bar-code" press="handleMaterialScan"></Button>
+					<Input id="MatInput" type="Number" showSuggestion="false" placeholder="Material Number" submit="handleMaterialAdd"></Input>
+					<Button icon="sap-icon://add" press="handleMaterialAdd"></Button>
+				</HBox>
+			</contentRight>
+		</Bar>
+		<Table id="selectedMaterialsTable" items="{/ViewModel/SelectedMaterials}" noDataText="Please scan or enter materials">
+			<columns>
+				<Column>
+					<header><Label text="Material Number"/></header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+					<header><Label text="Description"/></header>
+				</Column>
+				<Column hAlign="Right">
+					<header><Label text="Quantity"/></header>
+				</Column>
+			</columns>
+			<ColumnListItem>
+				<cells>
+					<ObjectIdentifier title="{EMaterial}"/>
+					<Text text="{EDescMaterial}"/>
+					<StepInput id="qtyInput" value="{quantity}" min="0" max="100" width="120px" change="removeCheck">
+					</StepInput>
+				</cells>
+			</ColumnListItem>
+		</Table>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>ApproveButtonText}" type="Accept" icon="sap-icon://accept" press="handleApprove"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

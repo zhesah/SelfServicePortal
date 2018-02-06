@@ -1,0 +1,21 @@
+<core:View
+	controllerName="SelfServicePortal.view.LineItem"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" >
+	<Page
+		id="page"
+		title="{i18n>LineItemTitle}"
+		showNavButton="true"
+		navButtonPress="handleNavBack" >
+		<footer>
+			<Bar>
+			</Bar>
+		</footer>
+		<content>
+			<ObjectHeader
+				title="{MaterialName}"
+				number="{MaterialNum}">
+			</ObjectHeader>
+		</content>
+	</Page>
+</core:View>

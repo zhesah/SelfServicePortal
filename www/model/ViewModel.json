@@ -1,0 +1,56 @@
+{
+	"ViewModel": {
+		"EmployeeSet": [{
+			"EmployeeNum": "001",
+			"Name": "Jeremy Ho"
+		}, {
+			"EmployeeNum": "002",
+			"Name": "Ian Chua"
+		}, {
+			"EmployeeNum": "003",
+			"Name": "Daniel Tejeda"
+		}, {
+			"EmployeeNum": "004",
+			"Name": "Pedro Valencia"
+		}, {
+			"EmployeeNum": "005",
+			"Name": "Jenny Chiew"
+		}],
+		"CostCenterSet": [{
+			"CCNum": "12345",
+			"CCDescription": "test1"
+		}, {
+			"CCNum": "23456",
+			"CCDescription": "test2"
+		}, {
+			"CCNum": "34567",
+			"CCDescription": "test3"
+		}],
+		"WorkOrderSet": [{
+			"WONum": "98765",
+			"WODescription": "test4"
+		}, {
+			"WONum": "87654",
+			"WODescription": "test5"
+		}, {
+			"WONum": "76543",
+			"WODescription": "test6"
+		}],
+		"MaterialSet": [{
+			"MaterialNum": "00001",
+			"MaterialName": "Screwdriver"
+		}, {
+			"MaterialNum": "00002",
+			"MaterialName": "Hammer"
+		}, {
+			"MaterialNum": "00003",
+			"MaterialName": "Chainsaw"
+		}, {
+			"MaterialNum": "00004",
+			"MaterialName": "Drill"
+		}, {
+			"MaterialNum": "00005",
+			"MaterialName": "iPad"
+		}]
+	}
+}
